@@ -64,20 +64,17 @@ app.post("/api/new", function(req, res) {
     var indvScore = [];
     for (var j = 0; j < 10; j++) {
       var matchScore = 0;
-      var muppetScore = friends[i].scores[j];
+      var friendScore = friends[i].scores[j];
       var newFriendScore = newFriend.scores[j]; 
-      if (muppetScore > newFriendScore) {
-        matchScore = matchScore + (muppetScore - newFriendScore);
-      } else if (muppetScore === newFriendScore) {
+      if (friendScore > newFriendScore) {
+        matchScore = matchScore + (friendScore - newFriendScore);
+      } else if (friendScore === newFriendScore) {
         matchScore = matchScore + 0;
       } else {
-        matchScore = matchScore + (newFriendScore - muppetScore);
+        matchScore = matchScore + (newFriendScore - friendScore);
       }
     indvScore.push(matchScore);
     scoreTallyObj[i] = indvScore;
     }
     console.log("SCORE: " + indvScore);
    }
-
-```
-### Deployed to Heroku
