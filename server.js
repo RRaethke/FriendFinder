@@ -18,8 +18,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // =============================================================
 //Muppet Characters (DATA)
 var friends = [{
-  name:"Kermit",
-  photo: "https://pbs.twimg.com/profile_images/839900475205955585/FMzXSOkV.jpg",
+  name:"Nick",
+  photo: "https://www.flaticon.com/free-icon/add-user_346569#term=friend&page=1&position=72",
   scores:[
       2,
       4,
@@ -34,8 +34,8 @@ var friends = [{
     ]
 },
 {
-  name:"Miss Piggy",
-  photo:"https://pbs.twimg.com/profile_images/662349173467975680/UxlUTQL0.jpg",
+  name:"Jenna",
+  photo:"https://www.flaticon.com/free-icon/add-user_346569#term=friend&page=1&position=72",
   scores:[
       5,
       3,
@@ -50,8 +50,8 @@ var friends = [{
     ]
 },
 {
-  name:"Fozzy the Bear",
-  photo:"https://pbs.twimg.com/profile_images/119415120/3-fozzie.jpg",
+  name:"Adam",
+  photo:"https://www.flaticon.com/free-icon/add-user_346569#term=friend&page=1&position=72",
   scores:[
       1,
       5,
@@ -66,8 +66,8 @@ var friends = [{
     ]
 },
 {
-  name:"Gonzo",
-  photo:"https://pbs.twimg.com/media/CG09H1XUcAApusv.jpg",
+  name:"Alyssa",
+  photo:"https://www.flaticon.com/free-icon/add-user_346569#term=friend&page=1&position=72",
   scores:[
       3,
       5,
@@ -82,8 +82,8 @@ var friends = [{
     ]
 },
 {
-  name:"Animal",
-  photo:"https://pbs.twimg.com/profile_images/2002307628/Captura_de_pantalla_2012-03-17_a_la_s__22.14.48.png",
+  name:"Kevin",
+  photo:"https://www.flaticon.com/free-icon/add-user_346569#term=friend&page=1&position=72",
   scores:[
       5,
       5,
@@ -133,14 +133,14 @@ app.post("/api/new", function(req, res) {
   	var indvScore = [];
   	for (var j = 0; j < 10; j++) {
   		var matchScore = 0;
-  		var muppetScore = friends[i].scores[j];
+  		var friendScore = friends[i].scores[j];
   		var newFriendScore = newFriend.scores[j]; 
-  		if (muppetScore > newFriendScore) {
-  			matchScore = matchScore + (muppetScore - newFriendScore);
-	  	} else if (muppetScore === newFriendScore) {
+  		if (friendScore > newFriendScore) {
+  			matchScore = matchScore + (friendScore - newFriendScore);
+	  	} else if (friendScore === newFriendScore) {
   			matchScore = matchScore + 0;
 	  	} else {
-	  		matchScore = matchScore + (newFriendScore - muppetScore);
+	  		matchScore = matchScore + (newFriendScore - friendScore);
 	  	}
   	indvScore.push(matchScore);
   	scoreTallyObj[i] = indvScore;
